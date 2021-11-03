@@ -1,43 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 const Side = ({ repo_url, open }) => {
-    useEffect(() => {
-        console.log("useeffect called");
-        handleChange(dataToReturn);
-    },[])
-    const repoNames = [];
-    let dataToRetrun = [];
-    fetch(repo_url)
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            console.log(data);
-            dataToRetrun = data;
-            // handleChange(data);
-        })
-    const [allRepos, setAllRepos] = useState(() => {
-        return dataToRetrun;
-    });
-    const handleChange = (a) => {
-        console.log(a);
-        setAllRepos(a);
-    }
-    return (
-        <aside className="side" onClick={() => { handleChange(); }} style={{ width: open ? "17.5%" : "0%" }}>
-            <div>
-                <ul>
-                    {
-                        allRepos.map(repo => {
-                            return (
-                                <li>{repo.name}</li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
-        </aside>
-    )
-}
+	useEffect(() => {
+		fetch(repo_url)
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setAllRepos(data);
+			});
+	}, [repo_url]);
+	let dataToReturn = [];
+	const [allRepos, setAllRepos] = useState(() => {
+		fetch(repo_url)
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				dataToReturn = [...data];
+			});
+		return dataToReturn;
+	});
+	return (
+		<aside className="side" style={{ width: open ? "17.5%" : "0%" }}>
+			<div className="side-container">
+				<ul className="side-list">
+					{allRepos.map((repo, index) => {
+						return (
+							<li key={index} className="side-list-item">
+								<a href={repo.owner.html_url} className="side-list-item__user">
+									<img src={repo.owner.avatar_url} alt={repo.owner.login} />
+								</a>
+								<a href={repo.html_url} className="side-list-item__repo">
+									{repo.name}
+								</a>
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+		</aside>
+	);
+};
 
-export default Side
+export default Side;
+

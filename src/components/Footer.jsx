@@ -12,7 +12,7 @@ const Footer = () => {
             </div>
             <div className="footer-mid">
                 <span>&copy; 2021</span>
-                <span>GitHub All rights reserved</span>
+                <span>All rights reserved</span>
                 <span>Made By: <a href="https://github.com/akshatmittal61">Akshat Mittal</a></span>
             </div>
             <div className="footer-right">

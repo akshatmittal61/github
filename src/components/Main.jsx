@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import Side from './Side'
 import Button from './Button';
+import Starred from './Starred';
 
 const Main = ({ sidebar }) => {
     const [username, setUsername] = useState("akshatmittal61");
+    const [inputUserName, setInputUserName] = useState("");
     const url = (`https://api.github.com/users/${username}`);
     const change = (a) => {
         let dataToRetrun = {};
@@ -23,11 +25,12 @@ const Main = ({ sidebar }) => {
     });
     const handleChange = (e) => {
         const { value } = e.target;
-        setUsername(value);
+        setInputUserName(value);
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const urlToSet = `https://api.github.com/users/${username}`;
+        setUsername(inputUserName);
+        const urlToSet = `https://api.github.com/users/${inputUserName}`;
         change(urlToSet);
     }
     return (
@@ -39,7 +42,7 @@ const Main = ({ sidebar }) => {
                         className="form-input"
                         type="text"
                         placeholder="Enter user name"
-                        value={username}
+                        value={inputUserName}
                         onChange={handleChange}
                     />
                     <Button type="submit" text="Submit" color="blue" variant="fill" size="small" />
@@ -49,13 +52,23 @@ const Main = ({ sidebar }) => {
                         <div className="card-box">
                             <div className="card-head">
                                 <div className="card-head-image" onClick={() => { console.log(user) }}>
-                                    <img src={user.avatar_url} alt={user.name} />
+                                    <img
+                                        className="card-head-image__img"
+                                        src={user.avatar_url}
+                                        alt={user.name}
+                                    />
                                 </div>
                                 <div className="card-head-content">
                                     <div className="card-head-content__name">
                                         {user.name}
                                     </div>
+                                    <div className="card-head-content__login">
+                                        <a href={user.html_url} className="card-head-content__login">{`@${user.login}`}</a>
+                                    </div>
                                 </div>
+                            </div>
+                            <div className="card-body">
+                                <Starred starred_url={url + "/starred"} />
                             </div>
                         </div>
                     </div>
