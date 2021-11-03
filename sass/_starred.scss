@@ -1,0 +1,93 @@
+.starred {
+	width: 100%;
+    max-height: 100vh;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+	&-container {
+		width: 100%;
+		height: 100%;
+        max-height: 100vh;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+        position: relative;
+        top: 0;
+        left: 0;
+	}
+	&-repo {
+        &-container{
+            width: 100%;
+            height: 100%;
+            padding: 2.5rem;
+        }
+		width: 100%;
+		height: 10rem;
+		border-radius: 10px;
+		border: 2.5px solid var(--tcolor);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        &-user{
+            width: 40%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &__link{
+                width: 80%;
+                height: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 500px;
+            }
+            &__img{
+                object-fit: cover;
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 500px;
+            }
+        }
+        &-content{
+            width: 60%;
+            height: 80%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            flex-flow: column;
+            &>*{
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            &__details{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include respond(tab){
+                    flex-flow: column;
+                }
+                &>*{
+                    width: 50%;
+                    height: 100%;
+                    padding: 0.1rem 0;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    & .material-icons{
+                        font-size: 1.25rem;
+                        margin: 0 0.1rem;
+                    }
+                    @include respond(tab){
+                        width: 100%;
+                    }
+                }
+            }
+        }
+	}
+}

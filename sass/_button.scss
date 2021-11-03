@@ -1,0 +1,382 @@
+button {
+	background: inherit;
+	color: inherit;
+	border: none;
+	outline: none;
+	font: inherit;
+	text-decoration: inherit;
+	text-transform: inherit;
+	text-shadow: inherit;
+	text-rendering: inherit;
+	text-size-adjust: inherit;
+	text-indent: inherit;
+	text-align: inherit;
+	appearance: inherit;
+	&:hover,
+	&:active,
+	&:focus,
+	&:focus-visible,
+	&:focus-within {
+		border: none;
+		outline: none;
+	}
+}
+$outline: 0.25rem;
+$border: 0.125rem;
+$border-width: 0.35rem;
+.btn {
+	margin: 0.25rem 0.5rem;
+	padding: 0.825rem 1.375rem;
+	outline: 0 solid transparent;
+	border-radius: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1rem;
+	font-weight: 550;
+	cursor: pointer;
+	user-select: none;
+	line-height: 1.5;
+	transition: all var(--transition-time) ease-in-out;
+	background-color: var(--bgcolor-100);
+	color: var(--tcolor);
+	&:hover {
+		background-color: var(--bgcolor-400);
+		color: var(--tcolor-100);
+	}
+	&:active,
+	&:focus,
+	&:focus-visible,
+	&:focus-within {
+		background-color: var(--bgcolor-700);
+		color: var(--tcolor);
+		box-shadow: 0 0 0 $border-width rgba($tcolor-100, 0.25);
+		body.dark & {
+			box-shadow: 0 0 0 $border-width rgba($bgcolor, 0.25);
+		}
+	}
+	@include respond(phone) {
+		padding: 0.6rem 0.75rem;
+	}
+	&-sm {
+		font-size: 0.875rem;
+		padding: 0.6rem 1rem;
+		font-weight: 400;
+	}
+	&-lg {
+		font-size: 1.125rem;
+		padding: 1rem 1.6rem;
+		font-weight: 550;
+	}
+	&-fill {
+		background-color: var(--tcolor-100);
+		color: var(--bgcolor);
+		border: $border solid var(--bgcolor-100);
+		&:hover {
+			background-color: var(--bgcolor-400);
+			color: var(--tcolor);
+			border: $border solid var(--tcolor-100);
+		}
+		&:active,
+		&:focus,
+		&:focus-visible,
+		&:focus-within {
+			background-color: var(--tcolor-700);
+			color: var(--bgcolor);
+			border: $border solid var(--tcolor-700);
+			box-shadow: 0 0 0 $border-width rgba($tcolor, 0.25);
+			body.dark & {
+				box-shadow: 0 0 0 $border-width rgba($bgcolor, 0.25);
+			}
+		}
+	}
+	&,
+	&-fill {
+		&-light {
+			background-color: $bgcolor-400;
+			color: $tcolor;
+			border: $border solid $bgcolor-400;
+			&:hover {
+				background-color: $bgcolor-100;
+				color: $tcolor;
+				border: $border solid $tcolor-100;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $bgcolor-700;
+				color: $tcolor;
+				border: $border solid $bgcolor-700;
+				box-shadow: 0 0 0 $border-width rgba($bgcolor-700, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($tcolor-100, 0.25);
+				}
+			}
+		}
+		&-dark {
+			background-color: $tcolor-400;
+			color: $bgcolor;
+			border: $border solid $tcolor-400;
+			&:hover {
+				background-color: $tcolor-100;
+				color: $bgcolor;
+				border: $border solid $bgcolor-100;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $tcolor-700;
+				color: $bgcolor;
+				border: $border solid $tcolor-700;
+				box-shadow: 0 0 0 $border-width rgba($tcolor, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($tcolor-100, 0.25);
+				}
+			}
+		}
+		&-red {
+			background-color: $red;
+			border: $border solid $red;
+			color: $bgcolor;
+			&:hover {
+				background-color: $red-100;
+				color: $tcolor-100;
+				border: $border solid $red-400;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $red-700;
+				border: $border solid $red-700;
+				color: $bgcolor;
+				box-shadow: 0 0 0 $border-width rgba($red, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($red, 0.25);
+				}
+			}
+		}
+		&-blue {
+			background-color: $blue;
+			border: $border solid $blue;
+			color: $bgcolor;
+			&:hover {
+				background-color: $blue-100;
+				color: $tcolor-100;
+				border: $border solid $blue-400;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $blue-700;
+				border: $border solid $blue-700;
+				color: $bgcolor;
+				box-shadow: 0 0 0 $border-width rgba($blue, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($blue, 0.25);
+				}
+			}
+		}
+		&-green {
+			background-color: $green;
+			border: $border solid $green;
+			color: $bgcolor;
+			&:hover {
+				background-color: $green-100;
+				color: $tcolor-100;
+				border: $border solid $green-400;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $green-700;
+				border: $border solid $green-700;
+				color: $bgcolor;
+				box-shadow: 0 0 0 $border-width rgba($green, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($green, 0.25);
+				}
+			}
+		}
+		&-yellow {
+			background-color: $yellow;
+			border: $border solid $yellow;
+			color: $bgcolor;
+			&:hover {
+				background-color: $yellow-100;
+				color: $tcolor-100;
+				border: $border solid $yellow-400;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $yellow-700;
+				border: $border solid $yellow-700;
+				color: $bgcolor;
+				box-shadow: 0 0 0 $border-width rgba($yellow, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($yellow, 0.25);
+				}
+			}
+		}
+	}
+	&-outline {
+		background-color: var(--bgcolor-100);
+		color: var(--tcolor);
+		border: $border solid var(--tcolor-400);
+		&:hover {
+			background-color: var(--tcolor);
+			color: var(--bgcolor);
+			border: $border solid var(--tcolor);
+		}
+		&:active,
+		&:focus,
+		&:focus-visible,
+		&:focus-within {
+			background-color: var(--bgcolor-700);
+			color: var(--tcolor);
+			border: $border solid var(--tcolor-700);
+			box-shadow: 0 0 0 $border-width rgba($tcolor, 0.25);
+			body.dark & {
+				box-shadow: 0 0 0 $border-width rgba($bgcolor, 0.25);
+			}
+		}
+		&-light {
+			background-color: $bgcolor-100;
+			color: $tcolor;
+			border: $border solid var(--tcolor-400);
+			&:hover {
+				background-color: $tcolor;
+				color: $bgcolor;
+				border: $border solid var(--tcolor);
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $bgcolor-700;
+				color: $tcolor;
+				border: $border solid $tcolor-700;
+				box-shadow: 0 0 0 $border-width rgba($tcolor, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($bgcolor, 0.25);
+				}
+			}
+		}
+		&-dark {
+			background-color: $tcolor-100;
+			color: $bgcolor;
+			border: $border solid $bgcolor-400;
+			&:hover {
+				background-color: $bgcolor;
+				color: $tcolor;
+				border: $border solid var(--tcolor);
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $tcolor-700;
+				color: $bgcolor;
+				border: $border solid $tcolor-700;
+				box-shadow: 0 0 0 $border-width rgba($tcolor, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($bgcolor, 0.25);
+				}
+			}
+		}
+		&-red {
+			background-color: $red-100;
+			color: $tcolor;
+			border: $border solid $red-400;
+			&:hover {
+				background-color: $red;
+				color: $bgcolor;
+				border: $border solid $red;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $red-100;
+				color: $tcolor;
+				border: $border solid $red-400;
+				box-shadow: 0 0 0 $border-width rgba($red, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($red, 0.25);
+				}
+			}
+		}
+		&-blue {
+			background-color: $blue-100;
+			color: $tcolor;
+			border: $border solid $blue-400;
+			&:hover {
+				background-color: $blue;
+				color: $bgcolor;
+				border: $border solid $blue;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $blue-100;
+				color: $tcolor;
+				border: $border solid $blue-400;
+				box-shadow: 0 0 0 $border-width rgba($blue, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($blue, 0.25);
+				}
+			}
+		}
+		&-green {
+			background-color: $green-100;
+			color: $tcolor;
+			border: $border solid $green-400;
+			&:hover {
+				background-color: $green;
+				color: $bgcolor;
+				border: $border solid $green;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $green-100;
+				color: $tcolor;
+				border: $border solid $green-400;
+				box-shadow: 0 0 0 $border-width rgba($green, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($green, 0.25);
+				}
+			}
+		}
+		&-yellow {
+			background-color: $yellow-100;
+			color: $tcolor;
+			border: $border solid $yellow-400;
+			&:hover {
+				background-color: $yellow;
+				color: $bgcolor;
+				border: $border solid $yellow;
+			}
+			&:active,
+			&:focus,
+			&:focus-visible,
+			&:focus-within {
+				background-color: $yellow-100;
+				color: $tcolor;
+				border: $border solid $yellow-400;
+				box-shadow: 0 0 0 $border-width rgba($yellow, 0.25);
+				body.dark & {
+					box-shadow: 0 0 0 $border-width rgba($yellow, 0.25);
+				}
+			}
+		}
+	}
+}
