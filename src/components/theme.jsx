@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 const Theme = () => {
-    const [theme, setTheme] = useState(parseInt(Date().substring(16, 18)) <18 ? "light" : "dark");
+    const [theme, setTheme] = useState((parseInt(Date().substring(16, 18)) < 18) && (parseInt(Date().substring(16, 18)) > 6) ? "light" : "dark");
     const body = document.querySelector("body");
     function changeTheme() {
         setTheme((theme === "light") ? "dark" : "light");

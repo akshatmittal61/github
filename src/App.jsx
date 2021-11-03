@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Footer from './components/Footer'
 import Header from './components/Header'
 import Main from './components/Main'
 
@@ -9,7 +8,6 @@ const App = () => {
         <>
             <Header sideBar={() => { setsideBarExpand(!sideBarExpand) }} />
             <Main aside={sideBarExpand} />
-            {/* <Footer /> */}
         </>
     )
 }

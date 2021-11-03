@@ -4,7 +4,7 @@ import Button from './Button';
 import Starred from './Starred';
 
 const Main = ({ aside }) => {
-    const [username, setUsername] = useState("akshatmittal61");
+    const [username, setUsername] = useState("github");
     const [inputUserName, setInputUserName] = useState("");
     const url = (`https://api.github.com/users/${username}`);
     const change = (a) => {
@@ -47,32 +47,34 @@ const Main = ({ aside }) => {
                     />
                     <Button type="submit" text="Submit" color="blue" variant="fill" size="small" />
                 </form>
-                <div className="card">
-                    <div className="card-frame">
-                        <div className="card-box">
-                            <div className="card-head">
-                                <div className="card-head-image" onClick={() => { console.log(user) }}>
-                                    <img
-                                        className="card-head-image__img"
-                                        src={user.avatar_url}
-                                        alt={user.name}
-                                    />
-                                </div>
-                                <div className="card-head-content">
-                                    <div className="card-head-content__name">
-                                        {user.name}
+                {
+                    username !== "" && <div className="card">
+                        <div className="card-frame">
+                            <div className="card-box">
+                                <div className="card-head">
+                                    <div className="card-head-image" onClick={() => { console.log(user) }}>
+                                        <img
+                                            className="card-head-image__img"
+                                            src={user.avatar_url}
+                                            alt={user.name}
+                                        />
                                     </div>
-                                    <div className="card-head-content__login">
-                                        <a href={user.html_url} className="card-head-content__login">{`@${user.login}`}</a>
+                                    <div className="card-head-content">
+                                        <div className="card-head-content__name">
+                                            {user.name}
+                                        </div>
+                                        <div className="card-head-content__login">
+                                            <a href={user.html_url} className="card-head-content__login">{`@${user.login}`}</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="card-body">
-                                <Starred starred_url={url + "/starred"} />
+                                <div className="card-body">
+                                    <Starred starred_url={url + "/starred"} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </main>
     )

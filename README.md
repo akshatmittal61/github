@@ -1,3 +1,6 @@
+# GitHub API
+This is a simple project for GitHub API practice, to search for users on github and their info like all repos owned by the user, the starred repos.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
