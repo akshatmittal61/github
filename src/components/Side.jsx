@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Side = ({ repo_url, open }) => {
+const Side = ({ repo_url, aside }) => {
 	useEffect(() => {
 		fetch(repo_url)
 			.then((res) => {
@@ -22,7 +22,7 @@ const Side = ({ repo_url, open }) => {
 		return dataToReturn;
 	});
 	return (
-		<aside className="side" style={{ width: open ? "17.5%" : "0%" }}>
+		<aside className={`side side-${aside ? "expand" : "hide"}`}>
 			<div className="side-container">
 				<ul className="side-list">
 					{allRepos.map((repo, index) => {

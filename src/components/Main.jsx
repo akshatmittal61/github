@@ -3,7 +3,7 @@ import Side from './Side'
 import Button from './Button';
 import Starred from './Starred';
 
-const Main = ({ sidebar }) => {
+const Main = ({ aside }) => {
     const [username, setUsername] = useState("akshatmittal61");
     const [inputUserName, setInputUserName] = useState("");
     const url = (`https://api.github.com/users/${username}`);
@@ -35,8 +35,8 @@ const Main = ({ sidebar }) => {
     }
     return (
         <main className="main">
-            <Side repo_url={user.repos_url} open={sidebar} />
-            <div className="page" style={{ width: sidebar ? "82.5%" : "100%" }}>
+            <Side repo_url={user.repos_url} aside={aside} />
+            <div className={`page page-aside-${aside ? "expand" : "hide"}`}>
                 <form className="form" onSubmit={handleSubmit}>
                     <input
                         className="form-input"

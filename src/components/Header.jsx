@@ -3,11 +3,11 @@ import favicon from '../images/favicon.svg'
 import logo from '../images/GitHub.svg'
 import Theme from './theme'
 
-const Header = ({ open }) => {
+const Header = ({ sideBar }) => {
     return (
         <header className="header">
             <div className="header-left">
-                <div className="header-left-toggle" onClick={open}>
+                <div className="header-left-toggle" onClick={sideBar}>
                     <span className="material-icons">menu</span>
                 </div>
                 <a href="https://github.com" className="header-left-image">

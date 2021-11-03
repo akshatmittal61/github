@@ -4,13 +4,12 @@ import Header from './components/Header'
 import Main from './components/Main'
 
 const App = () => {
-    const [side, setSide] = useState(window.innerWidth > 880 ? true : false);
-    const handleSide = () => { setSide(!side) }
+    const [sideBarExpand, setsideBarExpand] = useState((window.innerWidth > 880 ? true : false));
     return (
         <>
-            <Header open={handleSide} />
-            <Main sidebar={side} />
-            <Footer />
+            <Header sideBar={() => { setsideBarExpand(!sideBarExpand) }} />
+            <Main aside={sideBarExpand} />
+            {/* <Footer /> */}
         </>
     )
 }
